@@ -1,6 +1,6 @@
 ---
 title: Addition
-date: 2026-01-04
+date: 2026-01-05
 author: Your Name
 cell_count: 2
 score: 0
