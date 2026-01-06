@@ -1,12 +1,12 @@
 ---
 title: Typingmodule
-date: 2026-01-05
+date: 2026-01-06
 author: Your Name
-cell_count: 21
+cell_count: 20
 score: 20
 ---
 
-1.Specifying Function Input and Output Types
+Specifying Function Input and Output Types
 
 
 ```python
@@ -20,7 +20,7 @@ print(sum_of_integers([1, 2, 3]))
     6
     
 
-2.Using Optional for Nullable Parameters
+Using Optional for Nullable Parameters
 
 
 ```python
@@ -37,7 +37,7 @@ print(greet("Alice"))
     Hello, Alice!
     
 
-3.Type Hint for Dictionaries
+Type Hint for Dictionaries
 
 
 ```python
@@ -51,7 +51,7 @@ print(count_fruits(fruits))
     10
     
 
-4.Using Union for Multiple Types
+Using Union for Multiple Types
 
 
 ```python
@@ -68,7 +68,7 @@ print(square_or_length("test"))
     4
     
 
-5. Custom Type Aliases
+Custom Type Aliases
 
 
 ```python
@@ -82,7 +82,7 @@ print(dot_product([1.0, 2.0], [3.0, 4.0]))
     11.0
     
 
-6. Using Callable for Functions
+Using Callable for Functions
 
 
 ```python
@@ -98,7 +98,7 @@ print(result)
     5
     
 
-7. Using Tuple for Fixed-Length Sequences
+Using Tuple for Fixed-Length Sequences
 
 
 ```python
@@ -111,7 +111,7 @@ print(process_coordinates((40.7128, -74.0060)))
     Latitude: 40.7128, Longitude: -74.006
     
 
-8. Using Any for Flexible Input
+Using Any for Flexible Input
 
 
 ```python
@@ -126,7 +126,7 @@ print(stringify([1, 2, 3]))
     [1, 2, 3]
     
 
-9. Using Literal for Specific Values
+Using Literal for Specific Values
 
 
 ```python
@@ -139,7 +139,7 @@ print(choose_plan("premium"))
     You selected the premium plan.
     
 
-10. Using TypedDict for Structured Dictionaries
+Using TypedDict for Structured Dictionaries
 
 
 ```python
@@ -156,11 +156,6 @@ print(display_user(user))
 
     Alice (30) can be reached at alice@example.com.
     
-
-
-```python
-
-```
 
 
 ---

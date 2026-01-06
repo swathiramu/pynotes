@@ -48,11 +48,11 @@
         title="Permalink to Typingmodule">Typingmodule</a></h3>
     </header>
 
-<h6 class="subheader" title="2026-01-05T00:00:00-05:00">Mon 05 January 2026
+<h6 class="subheader" title="2026-01-06T00:00:00-05:00">Tue 06 January 2026
 </h6>
 
 
-    <p>1.Specifying Function Input and Output Types</p>
+    <p>Specifying Function Input and Output Types</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">sum_of_integers</span><span class="p">(</span><span class="n">numbers</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
     <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
@@ -63,7 +63,7 @@
 <div class="highlight"><pre><span></span><code><span class="mf">6</span>
 </code></pre></div>
 
-<p>2.Using Optional for Nullable Parameters</p>
+<p>Using Optional for Nullable Parameters</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">name</span><span class="p">:</span>
@@ -77,7 +77,7 @@
 Hello, Alice!
 </code></pre></div>
 
-<p>3.Type Hint for Dictionaries</p>
+<p>Type Hint for Dictionaries</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">count_fruits</span><span class="p">(</span><span class="n">fruit_counts</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
     <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">fruit_counts</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
@@ -88,7 +88,7 @@ Hello, Alice!
 <div class="highlight"><pre><span></span><code><span class="mf">10</span>
 </code></pre></div>
 
-<p>4.Using Union for Multiple Types</p>
+<p>Using Union for Multiple Types</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Union</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">square_or_length</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
@@ -102,9 +102,7 @@ Hello, Alice!
 <span class="mf">4</span>
 </code></pre></div>
 
-<ol>
-<li>Custom Type Aliases</li>
-</ol>
+<p>Custom Type Aliases</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
 <span class="n">Vector</span> <span class="o">=</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">dot_product</span><span class="p">(</span><span class="n">vec1</span><span class="p">:</span> <span class="n">Vector</span><span class="p">,</span> <span class="n">vec2</span><span class="p">:</span> <span class="n">Vector</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
@@ -115,9 +113,7 @@ Hello, Alice!
 <div class="highlight"><pre><span></span><code><span class="mf">11.0</span>
 </code></pre></div>
 
-<ol>
-<li>Using Callable for Functions</li>
-</ol>
+<p>Using Callable for Functions</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">apply_operation</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">operation</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
@@ -130,9 +126,7 @@ Hello, Alice!
 <div class="highlight"><pre><span></span><code><span class="mf">5</span>
 </code></pre></div>
 
-<ol>
-<li>Using Tuple for Fixed-Length Sequences</li>
-</ol>
+<p>Using Tuple for Fixed-Length Sequences</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tuple</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">process_coordinates</span><span class="p">(</span><span class="n">coords</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Latitude: </span><span class="si">{</span><span class="n">coords</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">, Longitude: </span><span class="si">{</span><span class="n">coords</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -142,9 +136,7 @@ Hello, Alice!
 <div class="highlight"><pre><span></span><code><span class="n">Latitude</span><span class="o">:</span><span class="w"> </span><span class="mf">40.7128</span><span class="o">,</span><span class="w"> </span><span class="n">Longitude</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">74.006</span>
 </code></pre></div>
 
-<ol>
-<li>Using Any for Flexible Input</li>
-</ol>
+<p>Using Any for Flexible Input</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">stringify</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
@@ -156,9 +148,7 @@ Hello, Alice!
 <span class="err">[</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="err">]</span>
 </code></pre></div>
 
-<ol>
-<li>Using Literal for Specific Values</li>
-</ol>
+<p>Using Literal for Specific Values</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Literal</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">choose_plan</span><span class="p">(</span><span class="n">plan</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;free&quot;</span><span class="p">,</span> <span class="s2">&quot;premium&quot;</span><span class="p">,</span> <span class="s2">&quot;enterprise&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;You selected the </span><span class="si">{</span><span class="n">plan</span><span class="si">}</span><span class="s2"> plan.&quot;</span>
@@ -168,9 +158,7 @@ Hello, Alice!
 <div class="highlight"><pre><span></span><code>You selected the premium plan.
 </code></pre></div>
 
-<ol>
-<li>Using TypedDict for Structured Dictionaries</li>
-</ol>
+<p>Using TypedDict for Structured Dictionaries</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TypedDict</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">User</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
@@ -183,9 +171,6 @@ Hello, Alice!
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code><span class="n">Alice</span><span class="w"> </span><span class="p">(</span><span class="mi">30</span><span class="p">)</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">reached</span><span class="w"> </span><span class="k">at</span><span class="w"> </span><span class="n">alice</span><span class="nv">@example</span><span class="p">.</span><span class="n">com</span><span class="p">.</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>
 </code></pre></div>
 
 <hr>
