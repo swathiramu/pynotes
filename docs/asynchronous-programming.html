@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Asynchronous Programming</title>
+
+    <link rel="stylesheet" href="/theme/css/normalize.css" />
+    <link rel="stylesheet" href="/theme/css/foundation.min.css" />
+    <link rel="stylesheet" href="/theme/css/style.css" />
+    <link rel="stylesheet" href="/theme/css/pygments.css" />	
+    <script src="/theme/js/modernizr.js"></script>
+</head>
+
+<body>
+
+<!-- Nav Bar -->
+<nav>
+<div class="top-bar">
+<div class="row">
+    <div class="large-9 large-centered columns">
+	    <h1><a href="">mypython notes</a></h1>
+    </div>
+</div>
+</div>
+
+<!-- Show menu items and pages -->
+<div class="row">
+<div class="large-9 columns">
+    <ul class="button-group navigation">
+
+    </ul>
+</div>
+</div>
+</nav>
+<!-- End Nav -->
+
+
+<!-- Main Page Content and Sidebar -->
+<div class="row">
+
+    <!-- Main Blog Content -->
+    <div class="large-9 columns">
+<article>
+    <header>
+        <h3 class="article-title"><a href="/asynchronous-programming.html" rel="bookmark"
+        title="Permalink to Asynchronous Programming">Asynchronous Programming</a></h3>
+    </header>
+
+<h6 class="subheader" title="2026-01-08T00:00:00-05:00">Thu 08 January 2026
+</h6>
+
+
+    <p>Basic Async Function</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">say_hello</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Goodbye, World!&quot;</span><span class="p">)</span>
+
+<span class="k">await</span> <span class="n">say_hello</span><span class="p">()</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>Hello, World!
+Goodbye, World!
+</code></pre></div>
+
+<p>Running Multiple Tasks Concurrently</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">task1</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Task 1 starting...&quot;</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Task 1 done!&quot;</span><span class="p">)</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">task2</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Task 2 starting...&quot;</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Task 2 done!&quot;</span><span class="p">)</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">task1</span><span class="p">(),</span> <span class="n">task2</span><span class="p">())</span>
+
+<span class="k">await</span> <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>Task 1 starting...
+Task 2 starting...
+Task 2 done!
+Task 1 done!
+</code></pre></div>
+
+<p>Using asyncio.sleep for Delays</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">countdown</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Counting down: </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Countdown finished!&quot;</span><span class="p">)</span>
+<span class="k">await</span> <span class="n">countdown</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>Counting down: 5
+Counting down: 4
+Counting down: 3
+Counting down: 2
+Counting down: 1
+Countdown finished!
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">aiohttp</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c">Collecting aiohttp</span>
+<span class="c">  Using cached aiohttp</span><span class="nb">-</span><span class="c">3</span><span class="nt">.</span><span class="c">13</span><span class="nt">.</span><span class="c">3</span><span class="nb">-</span><span class="c">cp312</span><span class="nb">-</span><span class="c">cp312</span><span class="nb">-</span><span class="c">win_amd64</span><span class="nt">.</span><span class="c">whl</span><span class="nt">.</span><span class="c">metadata (8</span><span class="nt">.</span><span class="c">4 kB)</span>
+<span class="c">Collecting aiohappyeyeballs</span><span class="nv">&gt;</span><span class="c">=2</span><span class="nt">.</span><span class="c">5</span><span class="nt">.</span><span class="c">0 (from aiohttp)</span>
+<span class="c">  Using cached aiohappyeyeballs</span><span class="nb">-</span><span class="c">2</span><span class="nt">.</span><span class="c">6</span><span class="nt">.</span><span class="c">1</span><span class="nb">-</span><span class="c">py3</span><span class="nb">-</span><span class="c">none</span><span class="nb">-</span><span class="c">any</span><span class="nt">.</span><span class="c">whl</span><span class="nt">.</span><span class="c">metadata (5</span><span class="nt">.</span><span class="c">9 kB)</span>
+<span class="c">Collecting aiosignal</span><span class="nv">&gt;</span><span class="c">=1</span><span class="nt">.</span><span class="c">4</span><span class="nt">.</span><span class="c">0 (from aiohttp)</span>
+<span class="c">  Using cached aiosignal</span><span class="nb">-</span><span class="c">1</span><span class="nt">.</span><span class="c">4</span><span class="nt">.</span><span class="c">0</span><span class="nb">-</span><span class="c">py3</span><span class="nb">-</span><span class="c">none</span><span class="nb">-</span><span class="c">any</span><span class="nt">.</span><span class="c">whl</span><span class="nt">.</span><span class="c">metadata (3</span><span class="nt">.</span><span class="c">7 kB)</span>
+<span class="c">Requirement already satisfied: attrs</span><span class="nv">&gt;</span><span class="c">=17</span><span class="nt">.</span><span class="c">3</span><span class="nt">.</span><span class="c">0 in c:\users\swath\</span><span class="nt">.</span><span class="c">conda\envs\py312\lib\site</span><span class="nb">-</span><span class="c">packages (from aiohttp) (25</span><span class="nt">.</span><span class="c">4</span><span class="nt">.</span><span class="c">0)</span>
+<span class="c">Collecting frozenlist</span><span class="nv">&gt;</span><span class="c">=1</span><span class="nt">.</span><span class="c">1</span><span class="nt">.</span><span class="c">1 (from aiohttp)</span>
+<span class="c">  Using cached frozenlist</span><span class="nb">-</span><span class="c">1</span><span class="nt">.</span><span class="c">8</span><span class="nt">.</span><span class="c">0</span><span class="nb">-</span><span class="c">cp312</span><span class="nb">-</span><span class="c">cp312</span><span class="nb">-</span><span class="c">win_amd64</span><span class="nt">.</span><span class="c">whl</span><span class="nt">.</span><span class="c">metadata (21 kB)</span>
+<span class="c">Collecting multidict</span><span class="nv">&lt;</span><span class="c">7</span><span class="nt">.</span><span class="c">0</span><span class="nt">,</span><span class="nv">&gt;</span><span class="c">=4</span><span class="nt">.</span><span class="c">5 (from aiohttp)</span>
+<span class="c">  Using cached multidict</span><span class="nb">-</span><span class="c">6</span><span class="nt">.</span><span class="c">7</span><span class="nt">.</span><span class="c">0</span><span class="nb">-</span><span class="c">cp312</span><span class="nb">-</span><span class="c">cp312</span><span class="nb">-</span><span class="c">win_amd64</span><span class="nt">.</span><span class="c">whl</span><span class="nt">.</span><span class="c">metadata (5</span><span class="nt">.</span><span class="c">5 kB)</span>
+<span class="c">Collecting propcache</span><span class="nv">&gt;</span><span class="c">=0</span><span class="nt">.</span><span class="c">2</span><span class="nt">.</span><span class="c">0 (from aiohttp)</span>
+<span class="c">  Using cached propcache</span><span class="nb">-</span><span class="c">0</span><span class="nt">.</span><span class="c">4</span><span class="nt">.</span><span class="c">1</span><span class="nb">-</span><span class="c">cp312</span><span class="nb">-</span><span class="c">cp312</span><span class="nb">-</span><span class="c">win_amd64</span><span class="nt">.</span><span class="c">whl</span><span class="nt">.</span><span class="c">metadata (14 kB)</span>
+<span class="c">Collecting yarl</span><span class="nv">&lt;</span><span class="c">2</span><span class="nt">.</span><span class="c">0</span><span class="nt">,</span><span class="nv">&gt;</span><span class="c">=1</span><span class="nt">.</span><span class="c">17</span><span class="nt">.</span><span class="c">0 (from aiohttp)</span>
+<span class="c">  Using cached yarl</span><span class="nb">-</span><span class="c">1</span><span class="nt">.</span><span class="c">22</span><span class="nt">.</span><span class="c">0</span><span class="nb">-</span><span class="c">cp312</span><span class="nb">-</span><span class="c">cp312</span><span class="nb">-</span><span class="c">win_amd64</span><span class="nt">.</span><span class="c">whl</span><span class="nt">.</span><span class="c">metadata (77 kB)</span>
+<span class="c">Requirement already satisfied: idna</span><span class="nv">&gt;</span><span class="c">=2</span><span class="nt">.</span><span class="c">0 in c:\users\swath\</span><span class="nt">.</span><span class="c">conda\envs\py312\lib\site</span><span class="nb">-</span><span class="c">packages (from yarl</span><span class="nv">&lt;</span><span class="c">2</span><span class="nt">.</span><span class="c">0</span><span class="nt">,</span><span class="nv">&gt;</span><span class="c">=1</span><span class="nt">.</span><span class="c">17</span><span class="nt">.</span><span class="c">0</span><span class="nb">-</span><span class="nv">&gt;</span><span class="c">aiohttp) (3</span><span class="nt">.</span><span class="c">11)</span>
+<span class="c">Requirement already satisfied: typing</span><span class="nb">-</span><span class="c">extensions</span><span class="nv">&gt;</span><span class="c">=4</span><span class="nt">.</span><span class="c">2 in c:\users\swath\</span><span class="nt">.</span><span class="c">conda\envs\py312\lib\site</span><span class="nb">-</span><span class="c">packages (from aiosignal</span><span class="nv">&gt;</span><span class="c">=1</span><span class="nt">.</span><span class="c">4</span><span class="nt">.</span><span class="c">0</span><span class="nb">-</span><span class="nv">&gt;</span><span class="c">aiohttp) (4</span><span class="nt">.</span><span class="c">15</span><span class="nt">.</span><span class="c">0)</span>
+<span class="c">Using cached aiohttp</span><span class="nb">-</span><span class="c">3</span><span class="nt">.</span><span class="c">13</span><span class="nt">.</span><span class="c">3</span><span class="nb">-</span><span class="c">cp312</span><span class="nb">-</span><span class="c">cp312</span><span class="nb">-</span><span class="c">win_amd64</span><span class="nt">.</span><span class="c">whl (455 kB)</span>
+<span class="c">Using cached multidict</span><span class="nb">-</span><span class="c">6</span><span class="nt">.</span><span class="c">7</span><span class="nt">.</span><span class="c">0</span><span class="nb">-</span><span class="c">cp312</span><span class="nb">-</span><span class="c">cp312</span><span class="nb">-</span><span class="c">win_amd64</span><span class="nt">.</span><span class="c">whl (46 kB)</span>
+<span class="c">Using cached yarl</span><span class="nb">-</span><span class="c">1</span><span class="nt">.</span><span class="c">22</span><span class="nt">.</span><span class="c">0</span><span class="nb">-</span><span class="c">cp312</span><span class="nb">-</span><span class="c">cp312</span><span class="nb">-</span><span class="c">win_amd64</span><span class="nt">.</span><span class="c">whl (87 kB)</span>
+<span class="c">Using cached aiohappyeyeballs</span><span class="nb">-</span><span class="c">2</span><span class="nt">.</span><span class="c">6</span><span class="nt">.</span><span class="c">1</span><span class="nb">-</span><span class="c">py3</span><span class="nb">-</span><span class="c">none</span><span class="nb">-</span><span class="c">any</span><span class="nt">.</span><span class="c">whl (15 kB)</span>
+<span class="c">Using cached aiosignal</span><span class="nb">-</span><span class="c">1</span><span class="nt">.</span><span class="c">4</span><span class="nt">.</span><span class="c">0</span><span class="nb">-</span><span class="c">py3</span><span class="nb">-</span><span class="c">none</span><span class="nb">-</span><span class="c">any</span><span class="nt">.</span><span class="c">whl (7</span><span class="nt">.</span><span class="c">5 kB)</span>
+<span class="c">Using cached frozenlist</span><span class="nb">-</span><span class="c">1</span><span class="nt">.</span><span class="c">8</span><span class="nt">.</span><span class="c">0</span><span class="nb">-</span><span class="c">cp312</span><span class="nb">-</span><span class="c">cp312</span><span class="nb">-</span><span class="c">win_amd64</span><span class="nt">.</span><span class="c">whl (44 kB)</span>
+<span class="c">Using cached propcache</span><span class="nb">-</span><span class="c">0</span><span class="nt">.</span><span class="c">4</span><span class="nt">.</span><span class="c">1</span><span class="nb">-</span><span class="c">cp312</span><span class="nb">-</span><span class="c">cp312</span><span class="nb">-</span><span class="c">win_amd64</span><span class="nt">.</span><span class="c">whl (41 kB)</span>
+<span class="c">Installing collected packages: propcache</span><span class="nt">,</span><span class="c"> multidict</span><span class="nt">,</span><span class="c"> frozenlist</span><span class="nt">,</span><span class="c"> aiohappyeyeballs</span><span class="nt">,</span><span class="c"> yarl</span><span class="nt">,</span><span class="c"> aiosignal</span><span class="nt">,</span><span class="c"> aiohttp</span>
+
+<span class="c">   </span><span class="nb">----------------------------------------</span><span class="c"> 0/7 </span><span class="k">[</span><span class="c">propcache</span><span class="k">]</span>
+<span class="c">   </span><span class="nb">-----</span><span class="c"> </span><span class="nb">----------------------------------</span><span class="c"> 1/7 </span><span class="k">[</span><span class="c">multidict</span><span class="k">]</span>
+<span class="c">   </span><span class="nb">-----------------</span><span class="c"> </span><span class="nb">----------------------</span><span class="c"> 3/7 </span><span class="k">[</span><span class="c">aiohappyeyeballs</span><span class="k">]</span>
+<span class="c">   </span><span class="nb">----------------------</span><span class="c"> </span><span class="nb">-----------------</span><span class="c"> 4/7 </span><span class="k">[</span><span class="c">yarl</span><span class="k">]</span>
+<span class="c">   </span><span class="nb">----------------------</span><span class="c"> </span><span class="nb">-----------------</span><span class="c"> 4/7 </span><span class="k">[</span><span class="c">yarl</span><span class="k">]</span>
+<span class="c">   </span><span class="nb">----------------------</span><span class="c"> </span><span class="nb">-----------------</span><span class="c"> 4/7 </span><span class="k">[</span><span class="c">yarl</span><span class="k">]</span>
+<span class="c">   </span><span class="nb">----------------------------------</span><span class="c"> </span><span class="nb">-----</span><span class="c"> 6/7 </span><span class="k">[</span><span class="c">aiohttp</span><span class="k">]</span>
+<span class="c">   </span><span class="nb">----------------------------------</span><span class="c"> </span><span class="nb">-----</span><span class="c"> 6/7 </span><span class="k">[</span><span class="c">aiohttp</span><span class="k">]</span>
+<span class="c">   </span><span class="nb">----------------------------------</span><span class="c"> </span><span class="nb">-----</span><span class="c"> 6/7 </span><span class="k">[</span><span class="c">aiohttp</span><span class="k">]</span>
+<span class="c">   </span><span class="nb">----------------------------------</span><span class="c"> </span><span class="nb">-----</span><span class="c"> 6/7 </span><span class="k">[</span><span class="c">aiohttp</span><span class="k">]</span>
+<span class="c">   </span><span class="nb">----------------------------------</span><span class="c"> </span><span class="nb">-----</span><span class="c"> 6/7 </span><span class="k">[</span><span class="c">aiohttp</span><span class="k">]</span>
+<span class="c">   </span><span class="nb">----------------------------------</span><span class="c"> </span><span class="nb">-----</span><span class="c"> 6/7 </span><span class="k">[</span><span class="c">aiohttp</span><span class="k">]</span>
+<span class="c">   </span><span class="nb">----------------------------------</span><span class="c"> </span><span class="nb">-----</span><span class="c"> 6/7 </span><span class="k">[</span><span class="c">aiohttp</span><span class="k">]</span>
+<span class="c">   </span><span class="nb">----------------------------------</span><span class="c"> </span><span class="nb">-----</span><span class="c"> 6/7 </span><span class="k">[</span><span class="c">aiohttp</span><span class="k">]</span>
+<span class="c">   </span><span class="nb">----------------------------------</span><span class="c"> </span><span class="nb">-----</span><span class="c"> 6/7 </span><span class="k">[</span><span class="c">aiohttp</span><span class="k">]</span>
+<span class="c">   </span><span class="nb">----------------------------------</span><span class="c"> </span><span class="nb">-----</span><span class="c"> 6/7 </span><span class="k">[</span><span class="c">aiohttp</span><span class="k">]</span>
+<span class="c">   </span><span class="nb">----------------------------------</span><span class="c"> </span><span class="nb">-----</span><span class="c"> 6/7 </span><span class="k">[</span><span class="c">aiohttp</span><span class="k">]</span>
+<span class="c">   </span><span class="nb">----------------------------------</span><span class="c"> </span><span class="nb">-----</span><span class="c"> 6/7 </span><span class="k">[</span><span class="c">aiohttp</span><span class="k">]</span>
+<span class="c">   </span><span class="nb">----------------------------------</span><span class="c"> </span><span class="nb">-----</span><span class="c"> 6/7 </span><span class="k">[</span><span class="c">aiohttp</span><span class="k">]</span>
+<span class="c">   </span><span class="nb">----------------------------------</span><span class="c"> </span><span class="nb">-----</span><span class="c"> 6/7 </span><span class="k">[</span><span class="c">aiohttp</span><span class="k">]</span>
+<span class="c">   </span><span class="nb">----------------------------------</span><span class="c"> </span><span class="nb">-----</span><span class="c"> 6/7 </span><span class="k">[</span><span class="c">aiohttp</span><span class="k">]</span>
+<span class="c">   </span><span class="nb">----------------------------------</span><span class="c"> </span><span class="nb">-----</span><span class="c"> 6/7 </span><span class="k">[</span><span class="c">aiohttp</span><span class="k">]</span>
+<span class="c">   </span><span class="nb">----------------------------------</span><span class="c"> </span><span class="nb">-----</span><span class="c"> 6/7 </span><span class="k">[</span><span class="c">aiohttp</span><span class="k">]</span>
+<span class="c">   </span><span class="nb">----------------------------------------</span><span class="c"> 7/7 </span><span class="k">[</span><span class="c">aiohttp</span><span class="k">]</span>
+
+<span class="c">Successfully installed aiohappyeyeballs</span><span class="nb">-</span><span class="c">2</span><span class="nt">.</span><span class="c">6</span><span class="nt">.</span><span class="c">1 aiohttp</span><span class="nb">-</span><span class="c">3</span><span class="nt">.</span><span class="c">13</span><span class="nt">.</span><span class="c">3 aiosignal</span><span class="nb">-</span><span class="c">1</span><span class="nt">.</span><span class="c">4</span><span class="nt">.</span><span class="c">0 frozenlist</span><span class="nb">-</span><span class="c">1</span><span class="nt">.</span><span class="c">8</span><span class="nt">.</span><span class="c">0 multidict</span><span class="nb">-</span><span class="c">6</span><span class="nt">.</span><span class="c">7</span><span class="nt">.</span><span class="c">0 propcache</span><span class="nb">-</span><span class="c">0</span><span class="nt">.</span><span class="c">4</span><span class="nt">.</span><span class="c">1 yarl</span><span class="nb">-</span><span class="c">1</span><span class="nt">.</span><span class="c">22</span><span class="nt">.</span><span class="c">0</span>
+</code></pre></div>
+
+<p>Concurrent HTTP Requests with aiohttp</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">aiohttp</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">fetch_url</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">response</span><span class="p">:</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">()</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">urls</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;https://example.com&quot;</span><span class="p">,</span> <span class="s2">&quot;https://httpbin.org&quot;</span><span class="p">,</span> <span class="s2">&quot;https://python.org&quot;</span><span class="p">]</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">aiohttp</span><span class="o">.</span><span class="n">ClientSession</span><span class="p">()</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+        <span class="n">tasks</span> <span class="o">=</span> <span class="p">[</span><span class="n">fetch_url</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span> <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">urls</span><span class="p">]</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="n">tasks</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">content</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">results</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Content from URL </span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">:</span><span class="se">\n</span><span class="si">{</span><span class="n">content</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span><span class="si">}</span><span class="s2">...</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">a</span>
+<span class="k">await</span> <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>Content from URL 1:
+<span class="cp">&lt;!doctype html&gt;</span><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;&lt;</span><span class="nt">head</span><span class="p">&gt;&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Example Domain<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;wid...</span>
+
+<span class="s">Content from URL 2:</span>
+<span class="s">&lt;!DOCTYPE html&gt;</span>
+<span class="s">&lt;html lang=&quot;</span><span class="na">en</span><span class="err">&quot;</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>httpbin.org<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+ ...
+
+Content from URL 3:
+<span class="cp">&lt;!doctype html&gt;</span>
+<span class="cm">&lt;!--[if lt IE 7]&gt;   &lt;html class=&quot;no-js ie6 lt-ie7 lt-ie8 lt-ie9&quot;&gt;   &lt;![endif]--&gt;</span>
+<span class="err">&lt;</span>!-...
+</code></pre></div>
+
+<p>Producer-Consumer Pattern</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">producer</span><span class="p">(</span><span class="n">queue</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Produces numbers 0-4 and puts them into the queue&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Producing </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">await</span> <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> 
+        <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Producer done producing.&quot;</span><span class="p">)</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">consumer</span><span class="p">(</span><span class="n">queue</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Consumes items from the queue until queue is empty&quot;&quot;&quot;</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="k">await</span> <span class="n">queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span> 
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Consuming </span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">queue</span><span class="o">.</span><span class="n">task_done</span><span class="p">()</span> 
+        <span class="k">if</span> <span class="n">queue</span><span class="o">.</span><span class="n">empty</span><span class="p">():</span>
+            <span class="k">break</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Consumer done consuming.&quot;</span><span class="p">)</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">queue</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">Queue</span><span class="p">()</span>
+    <span class="n">producer_task</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">producer</span><span class="p">(</span><span class="n">queue</span><span class="p">))</span>
+    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">consumer_task</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">consumer</span><span class="p">(</span><span class="n">queue</span><span class="p">))</span>
+    <span class="k">await</span> <span class="n">producer_task</span>
+    <span class="k">await</span> <span class="n">queue</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">consumer_task</span><span class="o">.</span><span class="n">done</span><span class="p">():</span>
+        <span class="n">consumer_task</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All tasks completed!&quot;</span><span class="p">)</span>
+
+<span class="k">await</span> <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>Producing 0
+Consuming 0
+Consumer done consuming.
+Producing 1
+Producing 2
+Producing 3
+Producing 4
+Producer done producing.
+</code></pre></div>
+
+<hr>
+<p><strong>Score: 10</strong></p>
+<p class="subheader">Category: <a href="/category/basics.html">basics</a>
+
+</p>
+
+
+
+
+</article>
+    </div>
+    <!-- End Main Content -->
+
+    <!-- Sidebar -->
+    <aside class="large-3 columns">
+        <h5 class="sidebar-title">Site</h5>
+        <ul class="side-nav">
+            <li><a href="/archives.html">Archives</a>
+            <li><a href="/tags.html">Tags</a>
+        </ul>
+
+		
+        <h5 class="sidebar-title">Categories</h5>
+        <ul class="side-nav">
+            <li><a href="/category/basics.html">basics</a></li>
+            <li><a href="/category/pandas-work.html">pandas-work</a></li>
+   
+        </ul>
+
+		
+        <h5 class="sidebar-title">Social</h5>
+        <ul class="side-nav">
+            <li><a href="https://github.com/swathiramu">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/swathiramu28/">LinkedIn</a></li>
+        </ul>
+
+    </aside> <!-- End Sidebar -->
+
+</div> <!-- End Main Content and Sidebar -->
+
+
+<!-- Footer -->
+<footer class="row">
+    <div class="large-12 columns">
+        <hr />
+        <div class="row">
+            <div class="large-6 columns">
+              <!--                  <p>mypython notes by Swathi</p> -->
+            </div>
+            </div>
+    </div>
+</footer>
+</body>
+</html>

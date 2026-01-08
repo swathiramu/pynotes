@@ -1,6 +1,6 @@
 ---
 title: Python Variables And Literals
-date: 2026-01-06
+date: 2026-01-08
 author: Your Name
 cell_count: 31
 score: 30

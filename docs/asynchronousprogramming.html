@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Asynchronousprogramming</title>
+
+    <link rel="stylesheet" href="/theme/css/normalize.css" />
+    <link rel="stylesheet" href="/theme/css/foundation.min.css" />
+    <link rel="stylesheet" href="/theme/css/style.css" />
+    <link rel="stylesheet" href="/theme/css/pygments.css" />	
+    <script src="/theme/js/modernizr.js"></script>
+</head>
+
+<body>
+
+<!-- Nav Bar -->
+<nav>
+<div class="top-bar">
+<div class="row">
+    <div class="large-9 large-centered columns">
+	    <h1><a href="">mypython notes</a></h1>
+    </div>
+</div>
+</div>
+
+<!-- Show menu items and pages -->
+<div class="row">
+<div class="large-9 columns">
+    <ul class="button-group navigation">
+
+    </ul>
+</div>
+</div>
+</nav>
+<!-- End Nav -->
+
+
+<!-- Main Page Content and Sidebar -->
+<div class="row">
+
+    <!-- Main Blog Content -->
+    <div class="large-9 columns">
+<article>
+    <header>
+        <h3 class="article-title"><a href="/asynchronousprogramming.html" rel="bookmark"
+        title="Permalink to Asynchronousprogramming">Asynchronousprogramming</a></h3>
+    </header>
+
+<h6 class="subheader" title="2026-01-08T00:00:00-05:00">Thu 08 January 2026
+</h6>
+
+
+    <p>Basic Async Function</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">say_hello</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Goodbye, World!&quot;</span><span class="p">)</span>
+
+<span class="k">await</span> <span class="n">say_hello</span><span class="p">()</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>Hello, World!
+Goodbye, World!
+</code></pre></div>
+
+<p>Running Multiple Tasks Concurrently</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">task1</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Task 1 starting...&quot;</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Task 1 done!&quot;</span><span class="p">)</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">task2</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Task 2 starting...&quot;</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Task 2 done!&quot;</span><span class="p">)</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">task1</span><span class="p">(),</span> <span class="n">task2</span><span class="p">())</span>
+
+<span class="k">await</span> <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>Task 1 starting...
+Task 2 starting...
+Task 2 done!
+Task 1 done!
+</code></pre></div>
+
+<p>Using asyncio.sleep for Delays</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">countdown</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Counting down: </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Countdown finished!&quot;</span><span class="p">)</span>
+<span class="k">await</span> <span class="n">countdown</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>Counting down: 5
+Counting down: 4
+Counting down: 3
+Counting down: 2
+Counting down: 1
+Countdown finished!
+</code></pre></div>
+
+<p>Concurrent HTTP Requests with aiohttp</p>
+<div class="highlight"><pre><span></span><code><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">aiohttp</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">Requirement</span><span class="w"> </span><span class="n">already</span><span class="w"> </span><span class="n">satisfied</span><span class="p">:</span><span class="w"> </span><span class="n">aiohttp</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">c</span><span class="p">:</span>\<span class="n">users</span>\<span class="n">swath</span>\<span class="o">.</span><span class="n">conda</span>\<span class="n">envs</span>\<span class="n">py312</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="w"> </span><span class="p">(</span><span class="mf">3.13</span><span class="o">.</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">Requirement</span><span class="w"> </span><span class="n">already</span><span class="w"> </span><span class="n">satisfied</span><span class="p">:</span><span class="w"> </span><span class="n">aiohappyeyeballs</span><span class="o">&gt;=</span><span class="mf">2.5</span><span class="o">.</span><span class="mi">0</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">c</span><span class="p">:</span>\<span class="n">users</span>\<span class="n">swath</span>\<span class="o">.</span><span class="n">conda</span>\<span class="n">envs</span>\<span class="n">py312</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="w"> </span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="n">aiohttp</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mf">2.6</span><span class="o">.</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Requirement</span><span class="w"> </span><span class="n">already</span><span class="w"> </span><span class="n">satisfied</span><span class="p">:</span><span class="w"> </span><span class="n">aiosignal</span><span class="o">&gt;=</span><span class="mf">1.4</span><span class="o">.</span><span class="mi">0</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">c</span><span class="p">:</span>\<span class="n">users</span>\<span class="n">swath</span>\<span class="o">.</span><span class="n">conda</span>\<span class="n">envs</span>\<span class="n">py312</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="w"> </span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="n">aiohttp</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mf">1.4</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">Requirement</span><span class="w"> </span><span class="n">already</span><span class="w"> </span><span class="n">satisfied</span><span class="p">:</span><span class="w"> </span><span class="n">attrs</span><span class="o">&gt;=</span><span class="mf">17.3</span><span class="o">.</span><span class="mi">0</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">c</span><span class="p">:</span>\<span class="n">users</span>\<span class="n">swath</span>\<span class="o">.</span><span class="n">conda</span>\<span class="n">envs</span>\<span class="n">py312</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="w"> </span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="n">aiohttp</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mf">25.4</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">Requirement</span><span class="w"> </span><span class="n">already</span><span class="w"> </span><span class="n">satisfied</span><span class="p">:</span><span class="w"> </span><span class="n">frozenlist</span><span class="o">&gt;=</span><span class="mf">1.1</span><span class="o">.</span><span class="mi">1</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">c</span><span class="p">:</span>\<span class="n">users</span>\<span class="n">swath</span>\<span class="o">.</span><span class="n">conda</span>\<span class="n">envs</span>\<span class="n">py312</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="w"> </span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="n">aiohttp</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mf">1.8</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">Requirement</span><span class="w"> </span><span class="n">already</span><span class="w"> </span><span class="n">satisfied</span><span class="p">:</span><span class="w"> </span><span class="n">multidict</span><span class="o">&lt;</span><span class="mf">7.0</span><span class="p">,</span><span class="o">&gt;=</span><span class="mf">4.5</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">c</span><span class="p">:</span>\<span class="n">users</span>\<span class="n">swath</span>\<span class="o">.</span><span class="n">conda</span>\<span class="n">envs</span>\<span class="n">py312</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="w"> </span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="n">aiohttp</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mf">6.7</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">Requirement</span><span class="w"> </span><span class="n">already</span><span class="w"> </span><span class="n">satisfied</span><span class="p">:</span><span class="w"> </span><span class="n">propcache</span><span class="o">&gt;=</span><span class="mf">0.2</span><span class="o">.</span><span class="mi">0</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">c</span><span class="p">:</span>\<span class="n">users</span>\<span class="n">swath</span>\<span class="o">.</span><span class="n">conda</span>\<span class="n">envs</span>\<span class="n">py312</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="w"> </span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="n">aiohttp</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mf">0.4</span><span class="o">.</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Requirement</span><span class="w"> </span><span class="n">already</span><span class="w"> </span><span class="n">satisfied</span><span class="p">:</span><span class="w"> </span><span class="n">yarl</span><span class="o">&lt;</span><span class="mf">2.0</span><span class="p">,</span><span class="o">&gt;=</span><span class="mf">1.17</span><span class="o">.</span><span class="mi">0</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">c</span><span class="p">:</span>\<span class="n">users</span>\<span class="n">swath</span>\<span class="o">.</span><span class="n">conda</span>\<span class="n">envs</span>\<span class="n">py312</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="w"> </span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="n">aiohttp</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mf">1.22</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">Requirement</span><span class="w"> </span><span class="n">already</span><span class="w"> </span><span class="n">satisfied</span><span class="p">:</span><span class="w"> </span><span class="n">idna</span><span class="o">&gt;=</span><span class="mf">2.0</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">c</span><span class="p">:</span>\<span class="n">users</span>\<span class="n">swath</span>\<span class="o">.</span><span class="n">conda</span>\<span class="n">envs</span>\<span class="n">py312</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="w"> </span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="n">yarl</span><span class="o">&lt;</span><span class="mf">2.0</span><span class="p">,</span><span class="o">&gt;=</span><span class="mf">1.17</span><span class="o">.</span><span class="mi">0</span><span class="o">-&gt;</span><span class="n">aiohttp</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mf">3.11</span><span class="p">)</span>
+<span class="n">Requirement</span><span class="w"> </span><span class="n">already</span><span class="w"> </span><span class="n">satisfied</span><span class="p">:</span><span class="w"> </span><span class="n">typing</span><span class="o">-</span><span class="n">extensions</span><span class="o">&gt;=</span><span class="mf">4.2</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">c</span><span class="p">:</span>\<span class="n">users</span>\<span class="n">swath</span>\<span class="o">.</span><span class="n">conda</span>\<span class="n">envs</span>\<span class="n">py312</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="w"> </span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="n">aiosignal</span><span class="o">&gt;=</span><span class="mf">1.4</span><span class="o">.</span><span class="mi">0</span><span class="o">-&gt;</span><span class="n">aiohttp</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mf">4.15</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">aiohttp</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">fetch_url</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">response</span><span class="p">:</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">()</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">urls</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;https://example.com&quot;</span><span class="p">,</span> <span class="s2">&quot;https://httpbin.org&quot;</span><span class="p">,</span> <span class="s2">&quot;https://python.org&quot;</span><span class="p">]</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">aiohttp</span><span class="o">.</span><span class="n">ClientSession</span><span class="p">()</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+        <span class="n">tasks</span> <span class="o">=</span> <span class="p">[</span><span class="n">fetch_url</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span> <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">urls</span><span class="p">]</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="n">tasks</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">content</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">results</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Content from URL </span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">:</span><span class="se">\n</span><span class="si">{</span><span class="n">content</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span><span class="si">}</span><span class="s2">...</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">await</span> <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>Content from URL 1:
+<span class="cp">&lt;!doctype html&gt;</span><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;&lt;</span><span class="nt">head</span><span class="p">&gt;&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Example Domain<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;wid...</span>
+
+<span class="s">Content from URL 2:</span>
+<span class="s">&lt;!DOCTYPE html&gt;</span>
+<span class="s">&lt;html lang=&quot;</span><span class="na">en</span><span class="err">&quot;</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>httpbin.org<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+ ...
+
+Content from URL 3:
+<span class="cp">&lt;!doctype html&gt;</span>
+<span class="cm">&lt;!--[if lt IE 7]&gt;   &lt;html class=&quot;no-js ie6 lt-ie7 lt-ie8 lt-ie9&quot;&gt;   &lt;![endif]--&gt;</span>
+<span class="err">&lt;</span>!-...
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<hr>
+<p><strong>Score: 10</strong></p>
+<p class="subheader">Category: <a href="/category/basics.html">basics</a>
+
+</p>
+
+
+
+
+</article>
+    </div>
+    <!-- End Main Content -->
+
+    <!-- Sidebar -->
+    <aside class="large-3 columns">
+        <h5 class="sidebar-title">Site</h5>
+        <ul class="side-nav">
+            <li><a href="/archives.html">Archives</a>
+            <li><a href="/tags.html">Tags</a>
+        </ul>
+
+		
+        <h5 class="sidebar-title">Categories</h5>
+        <ul class="side-nav">
+            <li><a href="/category/basics.html">basics</a></li>
+            <li><a href="/category/pandas-work.html">pandas-work</a></li>
+   
+        </ul>
+
+		
+        <h5 class="sidebar-title">Social</h5>
+        <ul class="side-nav">
+            <li><a href="https://github.com/swathiramu">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/swathiramu28/">LinkedIn</a></li>
+        </ul>
+
+    </aside> <!-- End Sidebar -->
+
+</div> <!-- End Main Content and Sidebar -->
+
+
+<!-- Footer -->
+<footer class="row">
+    <div class="large-12 columns">
+        <hr />
+        <div class="row">
+            <div class="large-6 columns">
+              <!--                  <p>mypython notes by Swathi</p> -->
+            </div>
+            </div>
+    </div>
+</footer>
+</body>
+</html>
