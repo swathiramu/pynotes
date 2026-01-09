@@ -317,6 +317,52 @@ Goodbye, World!
 
 
             <article>
+                <a href="https://swathiramu.github.io/pynotes/python-for-loop.html"><h3 class="article-title">Python For Loop</h3></a>
+<h6 class="subheader" title="2026-01-09T00:00:00-05:00">Fri 09 January 2026
+</h6>
+
+
+<p>Basic for Loop with a Sequence</p>
+<div class="highlight"><pre><span></span><code><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">fruit</span> <span class="ow">in</span> <span class="n">fruits</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fruit</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>apple
+banana
+orange
+</code></pre></div>
+
+<p>Using range() in for Loop</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="mf">0</span>
+<span class="mf">1</span>
+<span class="mf">2</span>
+<span class="mf">3</span>
+<span class="mf">4</span>
+<span class="mf">5</span>
+<span class="mf">6</span>
+</code></pre></div>
+
+<p>Custom Start and Step with range()</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10 …</span></code></pre></div><p class="subheader">Category: <a href="https://swathiramu.github.io/pynotes/category/basics.html">basics</a>
+
+</p>
+
+
+
+                <a class="button radius secondary small right" href="https://swathiramu.github.io/pynotes/python-for-loop.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
                 <a href="https://swathiramu.github.io/pynotes/python-type-conversion.html"><h3 class="article-title">Python Type Conversion</h3></a>
 <h6 class="subheader" title="2026-01-09T00:00:00-05:00">Fri 09 January 2026
 </h6>
@@ -426,47 +472,13 @@ Goodbye, World!
                 <hr  class="gradient"/>
             </article>
 
-        
-
-
-            <article>
-                <a href="https://swathiramu.github.io/pynotes/typingmodule.html"><h3 class="article-title">Typingmodule</h3></a>
-<h6 class="subheader" title="2026-01-09T00:00:00-05:00">Fri 09 January 2026
-</h6>
-
-
-<p>Specifying Function Input and Output Types</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">sum_of_integers</span><span class="p">(</span><span class="n">numbers</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">sum_of_integers</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span> 
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code><span class="mf">6</span>
-</code></pre></div>
-
-<p>Using Optional for Nullable Parameters</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">name</span><span class="p">:</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span>
-    <span class="k">return</span> <span class="s2">&quot;Hello, Guest …</span></code></pre></div><p class="subheader">Category: <a href="https://swathiramu.github.io/pynotes/category/basics.html">basics</a>
-
-</p>
-
-
-
-                <a class="button radius secondary small right" href="https://swathiramu.github.io/pynotes/typingmodule.html">Read More</a>
-                <hr  class="gradient"/>
-            </article>
-
             <!-- /#posts-list -->
 <div class="pagination-centered">
-<h6 class="subheader">Page 1 of 1</h6>
+<h6 class="subheader">Page 1 of 2</h6>
 
 <p>
 
+        <a href="https://swathiramu.github.io/pynotes/category/basics2.html">Next &raquo;</a>
 </p>
 </div>
 

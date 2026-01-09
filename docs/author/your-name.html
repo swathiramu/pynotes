@@ -462,6 +462,52 @@ Goodbye, World!
 
 
             <article>
+                <a href="https://swathiramu.github.io/pynotes/python-for-loop.html"><h3 class="article-title">Python For Loop</h3></a>
+<h6 class="subheader" title="2026-01-09T00:00:00-05:00">Fri 09 January 2026
+</h6>
+
+
+<p>Basic for Loop with a Sequence</p>
+<div class="highlight"><pre><span></span><code><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">fruit</span> <span class="ow">in</span> <span class="n">fruits</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fruit</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>apple
+banana
+orange
+</code></pre></div>
+
+<p>Using range() in for Loop</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="mf">0</span>
+<span class="mf">1</span>
+<span class="mf">2</span>
+<span class="mf">3</span>
+<span class="mf">4</span>
+<span class="mf">5</span>
+<span class="mf">6</span>
+</code></pre></div>
+
+<p>Custom Start and Step with range()</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10 …</span></code></pre></div><p class="subheader">Category: <a href="https://swathiramu.github.io/pynotes/category/basics.html">basics</a>
+
+</p>
+
+
+
+                <a class="button radius secondary small right" href="https://swathiramu.github.io/pynotes/python-for-loop.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
                 <a href="https://swathiramu.github.io/pynotes/python-type-conversion.html"><h3 class="article-title">Python Type Conversion</h3></a>
 <h6 class="subheader" title="2026-01-09T00:00:00-05:00">Fri 09 January 2026
 </h6>
@@ -513,61 +559,6 @@ Goodbye, World!
 
 
                 <a class="button radius secondary small right" href="https://swathiramu.github.io/pynotes/python-type-conversion.html">Read More</a>
-                <hr  class="gradient"/>
-            </article>
-
-        
-
-
-            <article>
-                <a href="https://swathiramu.github.io/pynotes/python-variables-and-literals.html"><h3 class="article-title">Python Variables And Literals</h3></a>
-<h6 class="subheader" title="2026-01-09T00:00:00-05:00">Fri 09 January 2026
-</h6>
-
-
-<p>Declaring and Assigning Variables</p>
-<div class="highlight"><pre><span></span><code><span class="n">count</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">price</span> <span class="o">=</span> <span class="mf">99.99</span>
-<span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Python&quot;</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span> 
-<span class="nb">print</span><span class="p">(</span><span class="n">price</span><span class="p">)</span>   
-<span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>    
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code><span class="mf">10</span>
-<span class="mf">99.99</span>
-<span class="n">Python</span>
-</code></pre></div>
-
-<p>Multiple Variable Assignment</p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>  
-<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>  
-<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code><span class="mf">1</span>
-<span class="mf">2</span>
-<span class="mf">3</span>
-</code></pre></div>
-
-<p>Reassigning Variables</p>
-<div class="highlight"><pre><span></span><code><span class="n">value</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code><span class="mf">100</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code><span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;Reassigned&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">value …</span></code></pre></div><p class="subheader">Category: <a href="https://swathiramu.github.io/pynotes/category/basics.html">basics</a>
-
-</p>
-
-
-
-                <a class="button radius secondary small right" href="https://swathiramu.github.io/pynotes/python-variables-and-literals.html">Read More</a>
                 <hr  class="gradient"/>
             </article>
 
