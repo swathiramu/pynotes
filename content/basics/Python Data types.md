@@ -240,8 +240,11 @@ print(statistics.median(num))
 
 
 ```python
-print(statistics.stdev(numbers))  
+print(statistics.stdev(num))  
 ```
+
+    15.811388300841896
+    
 
 
 ---
