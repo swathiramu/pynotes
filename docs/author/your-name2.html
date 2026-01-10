@@ -6,11 +6,11 @@
 
     <title>mypython notes - Your Name</title>
 
-    <link rel="stylesheet" href="https://swathiramu.github.io/pynotes/theme/css/normalize.css" />
-    <link rel="stylesheet" href="https://swathiramu.github.io/pynotes/theme/css/foundation.min.css" />
-    <link rel="stylesheet" href="https://swathiramu.github.io/pynotes/theme/css/style.css" />
-    <link rel="stylesheet" href="https://swathiramu.github.io/pynotes/theme/css/pygments.css" />	
-    <script src="https://swathiramu.github.io/pynotes/theme/js/modernizr.js"></script>
+    <link rel="stylesheet" href="/theme/css/normalize.css" />
+    <link rel="stylesheet" href="/theme/css/foundation.min.css" />
+    <link rel="stylesheet" href="/theme/css/style.css" />
+    <link rel="stylesheet" href="/theme/css/pygments.css" />	
+    <script src="/theme/js/modernizr.js"></script>
 </head>
 
 <body>
@@ -20,7 +20,7 @@
 <div class="top-bar">
 <div class="row">
     <div class="large-9 large-centered columns">
-	    <h1><a href="https://swathiramu.github.io/pynotes">mypython notes</a></h1>
+	    <h1><a href="">mypython notes</a></h1>
     </div>
 </div>
 </div>
@@ -47,8 +47,66 @@
 
 
             <article>
-                <a href="https://swathiramu.github.io/pynotes/python-variables-and-literals.html"><h3 class="article-title">Python Variables And Literals</h3></a>
-<h6 class="subheader" title="2026-01-09T00:00:00-05:00">Fri 09 January 2026
+                <a href="/python-type-conversion.html"><h3 class="article-title">Python Type Conversion</h3></a>
+<h6 class="subheader" title="2026-01-10T00:00:00-05:00">Sat 10 January 2026
+</h6>
+
+
+<p>Implicit Type Conversion</p>
+<div class="highlight"><pre><span></span><code><span class="n">integer_value</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">float_value</span> <span class="o">=</span> <span class="mf">3.5</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">integer_value</span> <span class="o">+</span> <span class="n">float_value</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="mf">13.5</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>&lt;class &#39;float&#39;&gt;
+</code></pre></div>
+
+<p>Explicit Type Conversion to Integer</p>
+<div class="highlight"><pre><span></span><code><span class="n">float_value</span> <span class="o">=</span> <span class="mf">9.99</span>
+<span class="n">string_value</span> <span class="o">=</span> <span class="s2">&quot;42&quot;</span>
+<span class="n">int_from_float</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">float_value</span><span class="p">)</span>
+<span class="n">int_from_string</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">string_value</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">int_from_float</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="mf">9</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">int_from_string</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="mf">42</span>
+</code></pre></div>
+
+<p>Explicit Type Conversion to Float</p>
+<div class="highlight"><pre><span></span><code><span class="n">int_value</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">string_value …</span></code></pre></div><p class="subheader">Category: <a href="/category/basics.html">basics</a>
+
+</p>
+
+
+
+                <a class="button radius secondary small right" href="/python-type-conversion.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
+                <a href="/python-variables-and-literals.html"><h3 class="article-title">Python Variables And Literals</h3></a>
+<h6 class="subheader" title="2026-01-10T00:00:00-05:00">Sat 10 January 2026
 </h6>
 
 
@@ -88,13 +146,13 @@
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code><span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;Reassigned&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">value …</span></code></pre></div><p class="subheader">Category: <a href="https://swathiramu.github.io/pynotes/category/basics.html">basics</a>
+<span class="nb">print</span><span class="p">(</span><span class="n">value …</span></code></pre></div><p class="subheader">Category: <a href="/category/basics.html">basics</a>
 
 </p>
 
 
 
-                <a class="button radius secondary small right" href="https://swathiramu.github.io/pynotes/python-variables-and-literals.html">Read More</a>
+                <a class="button radius secondary small right" href="/python-variables-and-literals.html">Read More</a>
                 <hr  class="gradient"/>
             </article>
 
@@ -102,8 +160,8 @@
 
 
             <article>
-                <a href="https://swathiramu.github.io/pynotes/typingmodule.html"><h3 class="article-title">Typingmodule</h3></a>
-<h6 class="subheader" title="2026-01-09T00:00:00-05:00">Fri 09 January 2026
+                <a href="/typingmodule.html"><h3 class="article-title">Typingmodule</h3></a>
+<h6 class="subheader" title="2026-01-10T00:00:00-05:00">Sat 10 January 2026
 </h6>
 
 
@@ -123,13 +181,13 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">name</span><span class="p">:</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span>
-    <span class="k">return</span> <span class="s2">&quot;Hello, Guest …</span></code></pre></div><p class="subheader">Category: <a href="https://swathiramu.github.io/pynotes/category/basics.html">basics</a>
+    <span class="k">return</span> <span class="s2">&quot;Hello, Guest …</span></code></pre></div><p class="subheader">Category: <a href="/category/basics.html">basics</a>
 
 </p>
 
 
 
-                <a class="button radius secondary small right" href="https://swathiramu.github.io/pynotes/typingmodule.html">Read More</a>
+                <a class="button radius secondary small right" href="/typingmodule.html">Read More</a>
                 <hr  class="gradient"/>
             </article>
 
@@ -138,7 +196,7 @@
 <h6 class="subheader">Page 2 of 2</h6>
 
 <p>
-            <a href="https://swathiramu.github.io/pynotes/author/your-name.html">&laquo; Prev</a>
+            <a href="/author/your-name.html">&laquo; Prev</a>
 
 </p>
 </div>
@@ -150,15 +208,15 @@
     <aside class="large-3 columns">
         <h5 class="sidebar-title">Site</h5>
         <ul class="side-nav">
-            <li><a href="https://swathiramu.github.io/pynotes/archives.html">Archives</a>
-            <li><a href="https://swathiramu.github.io/pynotes/tags.html">Tags</a>
+            <li><a href="/archives.html">Archives</a>
+            <li><a href="/tags.html">Tags</a>
         </ul>
 
 		
         <h5 class="sidebar-title">Categories</h5>
         <ul class="side-nav">
-            <li><a href="https://swathiramu.github.io/pynotes/category/basics.html">basics</a></li>
-            <li><a href="https://swathiramu.github.io/pynotes/category/pandas-work.html">pandas-work</a></li>
+            <li><a href="/category/basics.html">basics</a></li>
+            <li><a href="/category/pandas-work.html">pandas-work</a></li>
    
         </ul>
 

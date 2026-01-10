@@ -1,6 +1,6 @@
 ---
 title: Python For Loop
-date: 2026-01-09
+date: 2026-01-10
 author: Your Name
 cell_count: 19
 score: 15
