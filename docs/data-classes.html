@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Data Classes</title>
+
+    <link rel="stylesheet" href="https://swathiramu.github.io/pynotes/theme/css/normalize.css" />
+    <link rel="stylesheet" href="https://swathiramu.github.io/pynotes/theme/css/foundation.min.css" />
+    <link rel="stylesheet" href="https://swathiramu.github.io/pynotes/theme/css/style.css" />
+    <link rel="stylesheet" href="https://swathiramu.github.io/pynotes/theme/css/pygments.css" />	
+    <script src="https://swathiramu.github.io/pynotes/theme/js/modernizr.js"></script>
+</head>
+
+<body>
+
+<!-- Nav Bar -->
+<nav>
+<div class="top-bar">
+<div class="row">
+    <div class="large-9 large-centered columns">
+	    <h1><a href="https://swathiramu.github.io/pynotes">mypython notes</a></h1>
+    </div>
+</div>
+</div>
+
+<!-- Show menu items and pages -->
+<div class="row">
+<div class="large-9 columns">
+    <ul class="button-group navigation">
+
+    </ul>
+</div>
+</div>
+</nav>
+<!-- End Nav -->
+
+
+<!-- Main Page Content and Sidebar -->
+<div class="row">
+
+    <!-- Main Blog Content -->
+    <div class="large-9 columns">
+<article>
+    <header>
+        <h3 class="article-title"><a href="https://swathiramu.github.io/pynotes/data-classes.html" rel="bookmark"
+        title="Permalink to Data Classes">Data Classes</a></h3>
+    </header>
+
+<h6 class="subheader" title="2026-01-11T00:00:00-05:00">Sun 11 January 2026
+</h6>
+
+
+    <p>Basic Data Class</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Person</span><span class="p">:</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">age</span><span class="p">:</span> <span class="nb">int</span>
+<span class="n">person</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Swathi&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">21</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>Person(name=&#39;Swathi&#39;, age=21)
+</code></pre></div>
+
+<p>Default Values in Data Classes</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Book</span><span class="p">:</span>
+    <span class="n">tit</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">auth</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">pri</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">999.99</span>
+<span class="n">book</span> <span class="o">=</span> <span class="n">Book</span><span class="p">(</span><span class="n">tit</span><span class="o">=</span><span class="s2">&quot;ikigai&quot;</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="s2">&quot;Hector Garcia&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">book</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>Book(tit=&#39;ikigai&#39;, auth=&#39;Hector Garcia&#39;, pri=999.99)
+</code></pre></div>
+
+<p>Immutable Data Classes</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Point</span><span class="p">:</span>
+    <span class="n">x</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">y</span><span class="p">:</span> <span class="nb">float</span>
+
+<span class="n">point</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">point</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>Point(x=3, y=4.5)
+</code></pre></div>
+
+<p>Post-Initialization Processing</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Rectangle</span><span class="p">:</span>
+    <span class="n">w</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">h</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">a</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">w</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span>
+
+<span class="n">rect</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">(</span><span class="n">w</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">a</span><span class="p">)</span> 
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="mf">50</span>
+</code></pre></div>
+
+<p>Comparing Data Class Instances</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Item</span><span class="p">:</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
+
+<span class="k">def</span><span class="w"> </span><span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">name</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">price</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">price</span>
+
+<span class="n">item1</span> <span class="o">=</span> <span class="n">Item</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Laptop&quot;</span><span class="p">,</span> <span class="n">price</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">)</span>
+<span class="n">item2</span> <span class="o">=</span> <span class="n">Item</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Mobile&quot;</span><span class="p">,</span> <span class="n">price</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">item1</span> <span class="o">==</span> <span class="n">item2</span><span class="p">)</span> 
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>False
+</code></pre></div>
+
+<p>Default Factory for Mutable Fields</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ShoppingCart</span><span class="p">:</span>
+    <span class="n">items</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+
+<span class="n">cart</span> <span class="o">=</span> <span class="n">ShoppingCart</span><span class="p">()</span>
+<span class="n">cart</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Apple&quot;</span><span class="p">)</span>
+<span class="n">cart</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;banana&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cart</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>ShoppingCart(items=[&#39;Apple&#39;, &#39;banana&#39;])
+</code></pre></div>
+
+<p>Excluding Fields from repr</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">User</span><span class="p">:</span>
+    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">password</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;rjss&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;User(username=&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s2">&#39;)&quot;</span>
+
+<span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;Swathiii&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>User(username=&#39;Swathiii&#39;)
+</code></pre></div>
+
+<p>Data Classes with Type Hints</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Classroom</span><span class="p">:</span>
+    <span class="n">students</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="n">teacher</span><span class="p">:</span> <span class="nb">str</span>
+
+<span class="n">classroom</span> <span class="o">=</span> <span class="n">Classroom</span><span class="p">(</span><span class="n">students</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Swathi&quot;</span><span class="p">,</span> <span class="s2">&quot;Shruthii&quot;</span><span class="p">],</span> <span class="n">teacher</span><span class="o">=</span><span class="s2">&quot;Mr. Smith&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classroom</span><span class="p">)</span>  
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>Classroom(students=[&#39;Swathi&#39;, &#39;Shruthii&#39;], teacher=&#39;Mr. Smith&#39;)
+</code></pre></div>
+
+<p>Inheriting from Data Classes</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Animal</span><span class="p">:</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Dog</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+    <span class="n">breed</span><span class="p">:</span> <span class="nb">str</span>
+
+<span class="n">dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Buddy&quot;</span><span class="p">,</span> <span class="n">breed</span><span class="o">=</span><span class="s2">&quot;Golden Retriever&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dog</span><span class="p">)</span> 
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>Dog(name=&#39;Buddy&#39;, breed=&#39;Golden Retriever&#39;)
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<hr>
+<p><strong>Score: 15</strong></p>
+<p class="subheader">Category: <a href="https://swathiramu.github.io/pynotes/category/basics.html">basics</a>
+
+</p>
+
+
+
+
+</article>
+    </div>
+    <!-- End Main Content -->
+
+    <!-- Sidebar -->
+    <aside class="large-3 columns">
+        <h5 class="sidebar-title">Site</h5>
+        <ul class="side-nav">
+            <li><a href="https://swathiramu.github.io/pynotes/archives.html">Archives</a>
+            <li><a href="https://swathiramu.github.io/pynotes/tags.html">Tags</a>
+        </ul>
+
+		
+        <h5 class="sidebar-title">Categories</h5>
+        <ul class="side-nav">
+            <li><a href="https://swathiramu.github.io/pynotes/category/basics.html">basics</a></li>
+            <li><a href="https://swathiramu.github.io/pynotes/category/pandas-work.html">pandas-work</a></li>
+   
+        </ul>
+
+		
+        <h5 class="sidebar-title">Social</h5>
+        <ul class="side-nav">
+            <li><a href="https://github.com/swathiramu">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/swathiramu28/">LinkedIn</a></li>
+        </ul>
+
+    </aside> <!-- End Sidebar -->
+
+</div> <!-- End Main Content and Sidebar -->
+
+
+<!-- Footer -->
+<footer class="row">
+    <div class="large-12 columns">
+        <hr />
+        <div class="row">
+            <div class="large-6 columns">
+              <!--                  <p>mypython notes by Swathi</p> -->
+            </div>
+            </div>
+    </div>
+</footer>
+</body>
+</html>
