@@ -1,9 +1,9 @@
 ---
 title: Data Classes
-date: 2026-01-11
+date: 2026-01-12
 author: Your Name
-cell_count: 19
-score: 15
+cell_count: 21
+score: 20
 ---
 
 Basic Data Class
@@ -183,11 +183,34 @@ print(dog)
     Dog(name='Buddy', breed='Golden Retriever')
     
 
+Using asdict and astuple
+
 
 ```python
+from dataclasses import dataclass, asdict, astuple
+
+@dataclass
+class Employee:
+    name: str
+    role: str
+    salary: float
+
+employee = Employee(name="Swathiii", role="Developer", salary=75000.0)
+print(asdict(employee)) 
 
 ```
 
+    {'name': 'Swathiii', 'role': 'Developer', 'salary': 75000.0}
+    
+
+
+```python
+print(astuple(employee))  
+```
+
+    ('Swathiii', 'Developer', 75000.0)
+    
+
 
 ---
-**Score: 15**
+**Score: 20**
