@@ -367,6 +367,52 @@ Goodbye, World!
 
 
             <article>
+                <a href="https://swathiramu.github.io/pynotes/python-dictionary.html"><h3 class="article-title">Python Dictionary</h3></a>
+<h6 class="subheader" title="2026-01-13T00:00:00-05:00">Tue 13 January 2026
+</h6>
+
+
+<p>Creating a Dictionary</p>
+<div class="highlight"><pre><span></span><code><span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">dict</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>{}
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">student</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span> <span class="s2">&quot;grade&quot;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">student</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>{&#39;name&#39;: &#39;Alice&#39;, &#39;age&#39;: 22, &#39;grade&#39;: &#39;A&#39;}
+</code></pre></div>
+
+<p>Accessing Dictionary Values</p>
+<div class="highlight"><pre><span></span><code><span class="n">emp</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">186</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Swathi&quot;</span><span class="p">,</span> <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;Developer&quot;</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">emp</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>{&#39;id&#39;: 186, &#39;name&#39;: &#39;Swathi&#39;, &#39;role&#39;: &#39;Developer&#39;}
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">emp</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">186</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Swathi&quot;</span><span class="p">,</span> <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;Developer&quot;</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">emp</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">])</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>Swathi …</code></pre></div><p class="subheader">Category: <a href="https://swathiramu.github.io/pynotes/category/basics.html">basics</a>
+
+</p>
+
+
+
+                <a class="button radius secondary small right" href="https://swathiramu.github.io/pynotes/python-dictionary.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
                 <a href="https://swathiramu.github.io/pynotes/python-flow-control.html"><h3 class="article-title">Python Flow Control</h3></a>
 <h6 class="subheader" title="2026-01-13T00:00:00-05:00">Tue 13 January 2026
 </h6>
@@ -406,52 +452,6 @@ Goodbye, World!
 
 
                 <a class="button radius secondary small right" href="https://swathiramu.github.io/pynotes/python-flow-control.html">Read More</a>
-                <hr  class="gradient"/>
-            </article>
-
-        
-
-
-            <article>
-                <a href="https://swathiramu.github.io/pynotes/python-for-loop.html"><h3 class="article-title">Python For Loop</h3></a>
-<h6 class="subheader" title="2026-01-13T00:00:00-05:00">Tue 13 January 2026
-</h6>
-
-
-<p>Basic for Loop with a Sequence</p>
-<div class="highlight"><pre><span></span><code><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">]</span>
-
-<span class="k">for</span> <span class="n">fruit</span> <span class="ow">in</span> <span class="n">fruits</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">fruit</span><span class="p">)</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>apple
-banana
-orange
-</code></pre></div>
-
-<p>Using range() in for Loop</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code><span class="mf">0</span>
-<span class="mf">1</span>
-<span class="mf">2</span>
-<span class="mf">3</span>
-<span class="mf">4</span>
-<span class="mf">5</span>
-<span class="mf">6</span>
-</code></pre></div>
-
-<p>Custom Start and Step with range()</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10 …</span></code></pre></div><p class="subheader">Category: <a href="https://swathiramu.github.io/pynotes/category/basics.html">basics</a>
-
-</p>
-
-
-
-                <a class="button radius secondary small right" href="https://swathiramu.github.io/pynotes/python-for-loop.html">Read More</a>
                 <hr  class="gradient"/>
             </article>
 

@@ -512,45 +512,45 @@ Goodbye, World!
 
 
             <article>
-                <a href="https://swathiramu.github.io/pynotes/python-flow-control.html"><h3 class="article-title">Python Flow Control</h3></a>
+                <a href="https://swathiramu.github.io/pynotes/python-dictionary.html"><h3 class="article-title">Python Dictionary</h3></a>
 <h6 class="subheader" title="2026-01-13T00:00:00-05:00">Tue 13 January 2026
 </h6>
 
 
-<p>Basic if Statement</p>
-<div class="highlight"><pre><span></span><code><span class="n">age</span> <span class="o">=</span> <span class="mi">21</span>
-<span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Eligible&quot;</span><span class="p">)</span>
+<p>Creating a Dictionary</p>
+<div class="highlight"><pre><span></span><code><span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">dict</span><span class="p">)</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>Eligible
+<div class="highlight"><pre><span></span><code>{}
 </code></pre></div>
 
-<p>Using if else Statement</p>
-<div class="highlight"><pre><span></span><code><span class="n">Number</span> <span class="o">=</span> <span class="mi">30</span>
-<span class="k">if</span> <span class="n">Number</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number is small&quot;</span><span class="p">)</span>
-<span class="k">else</span> <span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number is big&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">student</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span> <span class="s2">&quot;grade&quot;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">student</span><span class="p">)</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>Number is big
+<div class="highlight"><pre><span></span><code>{&#39;name&#39;: &#39;Alice&#39;, &#39;age&#39;: 22, &#39;grade&#39;: &#39;A&#39;}
 </code></pre></div>
 
-<p>Using if &amp; elif &amp; else Chain</p>
-<div class="highlight"><pre><span></span><code><span class="n">Mark</span> <span class="o">=</span> <span class="mi">89</span>
+<p>Accessing Dictionary Values</p>
+<div class="highlight"><pre><span></span><code><span class="n">emp</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">186</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Swathi&quot;</span><span class="p">,</span> <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;Developer&quot;</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">emp</span><span class="p">)</span>
+</code></pre></div>
 
-<span class="k">if</span> <span class="n">Mark</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">Mark</span> <span class="o">&gt;=</span> <span class="mi">75</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">)</span>
-<span class="k">else …</span></code></pre></div><p class="subheader">Category: <a href="https://swathiramu.github.io/pynotes/category/basics.html">basics</a>
+<div class="highlight"><pre><span></span><code>{&#39;id&#39;: 186, &#39;name&#39;: &#39;Swathi&#39;, &#39;role&#39;: &#39;Developer&#39;}
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">emp</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">186</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Swathi&quot;</span><span class="p">,</span> <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;Developer&quot;</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">emp</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">])</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>Swathi …</code></pre></div><p class="subheader">Category: <a href="https://swathiramu.github.io/pynotes/category/basics.html">basics</a>
 
 </p>
 
 
 
-                <a class="button radius secondary small right" href="https://swathiramu.github.io/pynotes/python-flow-control.html">Read More</a>
+                <a class="button radius secondary small right" href="https://swathiramu.github.io/pynotes/python-dictionary.html">Read More</a>
                 <hr  class="gradient"/>
             </article>
 
