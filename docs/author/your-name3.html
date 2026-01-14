@@ -47,8 +47,60 @@
 
 
             <article>
+                <a href="https://swathiramu.github.io/pynotes/python-variable-scope.html"><h3 class="article-title">Python Variable Scope</h3></a>
+<h6 class="subheader" title="2026-01-14T00:00:00-05:00">Wed 14 January 2026
+</h6>
+
+
+<p>Local Scope</p>
+<p>def value():
+    x = 10
+    print(x)
+value()</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="nb">---------------------------------------------------------------------------</span>
+
+<span class="c">NameError                                 Traceback (most recent call last)</span>
+
+<span class="c">Cell In</span><span class="k">[</span><span class="c">6</span><span class="k">]</span><span class="nt">,</span><span class="c"> line 1</span>
+<span class="nb">----</span><span class="nv">&gt;</span><span class="c"> 1 print(x)</span>
+
+
+<span class="c">NameError: name &#39;x&#39; is not defined</span>
+</code></pre></div>
+
+<p>Global Scope</p>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">20</span>  
+<span class="k">def</span><span class="w"> </span><span class="nf">display</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="mf">20</span>
+<span class="mf">20</span>
+</code></pre></div>
+
+<p>Local vs Global Variable Conflict</p>
+<div class="highlight"><pre><span></span><code><span class="n">value …</span></code></pre></div><p class="subheader">Category: <a href="https://swathiramu.github.io/pynotes/category/basics.html">basics</a>
+
+</p>
+
+
+
+                <a class="button radius secondary small right" href="https://swathiramu.github.io/pynotes/python-variable-scope.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
                 <a href="https://swathiramu.github.io/pynotes/python-variables-and-literals.html"><h3 class="article-title">Python Variables And Literals</h3></a>
-<h6 class="subheader" title="2026-01-13T00:00:00-05:00">Tue 13 January 2026
+<h6 class="subheader" title="2026-01-14T00:00:00-05:00">Wed 14 January 2026
 </h6>
 
 
@@ -103,7 +155,7 @@
 
             <article>
                 <a href="https://swathiramu.github.io/pynotes/typingmodule.html"><h3 class="article-title">Typingmodule</h3></a>
-<h6 class="subheader" title="2026-01-13T00:00:00-05:00">Tue 13 January 2026
+<h6 class="subheader" title="2026-01-14T00:00:00-05:00">Wed 14 January 2026
 </h6>
 
 

@@ -1,6 +1,6 @@
 ---
 title: Python Data Types
-date: 2026-01-13
+date: 2026-01-14
 author: Your Name
 cell_count: 35
 score: 35

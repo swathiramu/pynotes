@@ -1,6 +1,6 @@
 ---
 title: Python List
-date: 2026-01-13
+date: 2026-01-14
 author: Your Name
 cell_count: 32
 score: 30
