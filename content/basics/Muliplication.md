@@ -1,6 +1,6 @@
 ---
 title: Muliplication
-date: 2026-01-14
+date: 2026-01-15
 author: Your Name
 cell_count: 2
 score: 0

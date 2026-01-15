@@ -1,6 +1,6 @@
 ---
 title: Python Type Conversion
-date: 2026-01-14
+date: 2026-01-15
 author: Your Name
 cell_count: 40
 score: 40

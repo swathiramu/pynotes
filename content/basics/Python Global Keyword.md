@@ -1,8 +1,8 @@
 ---
 title: Python Global Keyword
-date: 2026-01-14
+date: 2026-01-15
 author: Your Name
-cell_count: 21
+cell_count: 22
 score: 20
 ---
 
@@ -203,6 +203,11 @@ print(counter.value)
 
     1
     
+
+
+```python
+
+```
 
 
 ---

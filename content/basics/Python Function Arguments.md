@@ -1,6 +1,6 @@
 ---
 title: Python Function Arguments
-date: 2026-01-14
+date: 2026-01-15
 author: Your Name
 cell_count: 22
 score: 20
